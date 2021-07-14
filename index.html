@@ -23,7 +23,13 @@
 						<a class="nav-link active" aria-current="page" href="#">Home</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Blah</a>
+						<a class="nav-link" href="#">Currently Reading</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Want To Read</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Read</a>
 					</li>
 				</ul>
 				<form class="d-flex mt-2">
@@ -35,44 +41,69 @@
 	</nav>
 	<main>
 		<div class="container-fluid">
-			<div class="row">
-				<div class="col-9" id="cards">
-					<div class="row">
-						<div class="col-12 col-md-3">
+			<div class="row h-100">
+				<div class="col-lg-9 col-12 col-md-7" id="cards">
+					<div class="row" id="cardsContainer">
 						
-							<div class="card border border-info border-3 mx-auto my-3" style="width: 20rem;" id="book-0">
-								<div class="card-body">
-									<div>
-										<h4 class="card-title">The Hobbit</h4>
-										<h6 class="card-subtitle mb-2 text-muted">J.R.R. Tolkien</h6>
-									</div>
-									<div class="mt-4">
-										<label for="readPages" class="form-label text-muted m-0">Pages Read:</label>
-										<div class="d-flex justify-content-between">
-											<input type="range" class="form-range" min="0" max="250" value="100" id="readPages" aria-label="Pages Read">
-											<span class="text-muted ms-2">100</span>
-										</div>
-										<input class="form-check-input" type="checkbox" value="" id="read">
-										<label class="form-check-label" for="read">Read</label>
-									</div>
-								</div>
-								<div class="card-footer d-flex justify-content-end">
-									<div class="btn btn-outline-danger btn-sm px-2">Remove</div>
-									<div class="btn btn-outline-success btn-sm ms-2 px-4">Edit</div>
-								</div>
-							</div>
-						
+					</div>
+				</div>
+				<div class="col-lg-3 col-12 col-md-5 bg-light">
+				<!-- Reading Stats -->
+					<div class="w-75 mx-auto border-top border-bottom border-2 mt-5">
+						<h3 class="border-bottom text-center mt-2 pb-2">Reading Stats</h3>
+						<div class="mx-1 my-1">
+							<span class="h5">Total Books</span>
+							<span class="float-end" id="totalBooks"></span>
+						</div>
+						<div class="mx-1 my-1">
+							<span class="h5">Currently Reading</span>
+							<span class="float-end" id="reading"></span>
+						</div>
+						<div class="mx-1 my-1">
+							<span class="h5">Books Read</span>
+							<span class="float-end" id="booksRead"></span>
+						</div>
+						<div class="mx-1 my-1">
+							<span class="h5">Pages Read</span>
+							<span class="float-end" id="pagesRead"></span>
 						</div>
 					</div>
 					
-				</div>
-				<div class="col-3 bg-light">
-					<div class="w-75 mx-auto border-top border-bottom border-2 mt-5">
-						<h3 class="border-bottom text-center mt-2 pb-2">Library Stats</h3>
-						<div class="mx-1 my-1">
-							<span class="h5">Total Books</span>
-							<span class="float-end">1</span>
-						</div>
+					<!-- Book form -->
+					<div class="w-75 mx-auto mt-5">
+						<form class="bg-white border p-2" id="book-form">
+							<h5 class="text-center">Add a Book</h5>
+							<div class="input-group mb-3">
+								<span class="input-group-text" id="title-text">Title</span>
+								<input id="book-title" type="text" class="form-control" placeholder="The Hobbit" aria-label="Book Title" aria-describedby="title-text">
+							</div>
+							
+							<div class="input-group mb-3">
+								<span class="input-group-text" id="author-text">Author</span>
+								<input id="book-author" type="text" class="form-control" placeholder="J.R.R. Tolkien" aria-label="Book Author" aria-describedby="author-text">
+							</div>
+							
+							<div class="input-group mb-3">
+								<span class="input-group-text" id="pages-text">Total Pages</span>
+								<input id="book-pages" type="number" class="form-control" placeholder="320" aria-label="Book Total Pages" aria-describedby="pages-text">
+							</div>
+							
+							<div class="input-group mb-3">
+								<span class="input-group-text" id="read-text">Pages Read</span>
+								<input id="book-read-pages" type="number" class="form-control" placeholder="0" aria-label="Book Pages Read" aria-describedby="read-text">
+							</div>
+							
+							<div class="input-group mb-3">
+								<span class="input-group-text">Mark as Read?</span>
+								<span class="input-group-text bg-white">
+									<input id="book-read" class="form-check-input mt-0 mx-2" type="checkbox" value="" aria-label="Mark Book as Read">
+								</span>
+							</div>
+							
+							<div class="input-group mb-3 d-flex justify-content-center">
+								<div id="form-submit"	class="btn btn-outline-success">Add</div>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
