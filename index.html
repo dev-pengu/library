@@ -20,22 +20,22 @@
 			<div class="collapse navbar-collapse" id="navbarContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="#">Home</a>
+						<a id="home" class="nav-link active" aria-current="page" href="#">Home</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Currently Reading</a>
+						<a id="current" class="nav-link" href="#">Currently Reading</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Want To Read</a>
+						<a id="want" class="nav-link" href="#">Want To Read</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Read</a>
+						<a id="read" class="nav-link" href="#">Read</a>
 					</li>
 				</ul>
-				<form class="d-flex mt-2">
-					<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-					<button class="btn btn-outline-light" type="submit">Search</button>
-				</form>
+				<div class="d-flex">
+					<input id="searchbox" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+					<button id="search-btn" class="btn btn-outline-light" type="button">Search</button>
+				</div>
 			</div>
 		</div>
 	</nav>
@@ -72,36 +72,45 @@
 					<!-- Book form -->
 					<div class="w-75 mx-auto mt-5">
 						<form class="bg-white border p-2" id="book-form">
-							<h5 class="text-center">Add a Book</h5>
+							<h5 id="add-title" class="text-center">Add a Book</h5>
+							<h5 id="edit-title" class="text-center d-none">Edit Book</h5>
+							<input id="book-index" type="text" class="d-none">
 							<div class="input-group mb-3">
 								<span class="input-group-text" id="title-text">Title</span>
-								<input id="book-title" type="text" class="form-control" placeholder="The Hobbit" aria-label="Book Title" aria-describedby="title-text">
+								<input tabindex="1" id="book-title" type="text" class="form-control" placeholder="The Hobbit" aria-label="Book Title" aria-describedby="title-text">
 							</div>
 							
 							<div class="input-group mb-3">
 								<span class="input-group-text" id="author-text">Author</span>
-								<input id="book-author" type="text" class="form-control" placeholder="J.R.R. Tolkien" aria-label="Book Author" aria-describedby="author-text">
+								<input tabindex="2" id="book-author" type="text" class="form-control" placeholder="J.R.R. Tolkien" aria-label="Book Author" aria-describedby="author-text">
 							</div>
 							
 							<div class="input-group mb-3">
 								<span class="input-group-text" id="pages-text">Total Pages</span>
-								<input id="book-pages" type="number" class="form-control" placeholder="320" aria-label="Book Total Pages" aria-describedby="pages-text">
+								<input tabindex="3" id="book-pages" type="number" class="form-control" placeholder="320" aria-label="Book Total Pages" aria-describedby="pages-text">
 							</div>
 							
 							<div class="input-group mb-3">
 								<span class="input-group-text" id="read-text">Pages Read</span>
-								<input id="book-read-pages" type="number" class="form-control" placeholder="0" aria-label="Book Pages Read" aria-describedby="read-text">
+								<input tabindex="4" id="book-read-pages" type="number" class="form-control" placeholder="0" aria-label="Book Pages Read" aria-describedby="read-text">
 							</div>
 							
 							<div class="input-group mb-3">
 								<span class="input-group-text">Mark as Read?</span>
 								<span class="input-group-text bg-white">
-									<input id="book-read" class="form-check-input mt-0 mx-2" type="checkbox" value="" aria-label="Mark Book as Read">
+									<input tabindex="5" id="book-read" class="form-check-input mt-0 mx-2" type="checkbox" value="" aria-label="Mark Book as Read">
 								</span>
 							</div>
 							
-							<div class="input-group mb-3 d-flex justify-content-center">
-								<div id="form-submit"	class="btn btn-outline-success">Add</div>
+							<div id="error-alert" class="alert alert-danger d-none" role="alert">
+							
+							</div>
+							
+							<div id="form-submit-group" class="input-group mb-3 d-flex justify-content-center">
+								<button type="button" tabindex="6" id="form-submit"	class="btn btn-outline-success">Add</button>
+							</div>
+							<div id="form-edit-group" class="input-group mb-3 d-flex justify-content-center d-none">
+								<button type="button" tabindex="6" id="form-edit" class="btn btn-outline-info">Edit</button>
 							</div>
 						</form>
 					</div>
